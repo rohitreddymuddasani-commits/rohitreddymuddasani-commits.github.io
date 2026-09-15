@@ -171,6 +171,40 @@
       box-shadow: var(--shadow);
     }
 
+    .paper-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 34px;
+      align-items: start;
+    }
+
+    .paper-content {
+      min-width: 0;
+    }
+
+    .paper-figure {
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px;
+      background: #fff;
+    }
+
+    .paper-figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+
+    .paper-figure figcaption {
+      margin: 9px 4px 1px;
+      font-family: var(--serif);
+      font-size: 0.79rem;
+      line-height: 1.4;
+      color: var(--ink-3);
+    }
+
     .paper-top {
       display: flex;
       justify-content: space-between;
@@ -488,6 +522,15 @@
         gap: 12px;
       }
 
+      .paper-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .paper-figure {
+        max-width: 720px;
+      }
+
       .paper-highlights {
         grid-template-columns: 1fr;
       }
@@ -579,6 +622,8 @@
         <!-- ---------- PAPER 1 ---------- -->
 
         <article class="paper">
+          <div class="paper-layout">
+            <div class="paper-content">
           <div class="paper-top">
             <div>
               <div class="paper-number">01</div>
@@ -677,6 +722,19 @@
             </a>
           </div>
 
+            </div>
+
+            <figure class="paper-figure">
+              <img
+                src="Paper1_representative_ES.png"
+                alt="Event study for the effect of Digital Service Taxes on Amazon fees"
+              >
+              <figcaption>
+                Event study: effect of Digital Service Taxes on Amazon fees.
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="details" id="details-1">
             <h3>Abstract</h3>
             <p>
@@ -720,6 +778,8 @@
         <!-- ---------- PAPER 2 ---------- -->
 
         <article class="paper">
+          <div class="paper-layout">
+            <div class="paper-content">
           <div class="paper-top">
             <div>
               <div class="paper-number">02</div>
@@ -789,6 +849,19 @@
             </a>
           </div>
 
+            </div>
+
+            <figure class="paper-figure">
+              <img
+                src="Paper2_representative_ES.png"
+                alt="Event study for the effect of DAC6 on cross-border deposits"
+              >
+              <figcaption>
+                Event study: effect of DAC6 on cross-border deposits.
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="details" id="details-2">
             <h3>Abstract</h3>
             <p>
@@ -836,6 +909,8 @@
         <!-- ---------- PAPER 3 ---------- -->
 
         <article class="paper">
+          <div class="paper-layout">
+            <div class="paper-content">
           <div class="paper-top">
             <div>
               <div class="paper-number">03</div>
@@ -892,6 +967,19 @@
             >
               Paper Available on Request &rarr;
             </a>
+          </div>
+
+            </div>
+
+            <figure class="paper-figure">
+              <img
+                src="Paper3_representative_ES.png"
+                alt="Event study for taxation of standalone versus group firms"
+              >
+              <figcaption>
+                Event study: taxation of standalone versus group firms around DAC6.
+              </figcaption>
+            </figure>
           </div>
 
           <div class="details" id="details-3">
