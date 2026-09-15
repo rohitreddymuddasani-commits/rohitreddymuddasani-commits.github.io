@@ -1,0 +1,352 @@
+<title>Rohit Reddy Muddasani</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --bg:#ffffff;
+    --bg-subtle:#f3f5f8;
+    --surface:#ffffff;
+    --ink:#171b21;
+    --ink-2:#4c5560;
+    --ink-3:#87919c;
+    --accent:#1f3a5f;
+    --accent-2:#3f6591;
+    --accent-soft:#e8edf4;
+    --rule:#e1e5eb;
+    --border:#dfe3e9;
+    --shadow: 0 1px 2px rgba(23,27,33,0.04), 0 8px 24px rgba(23,27,33,0.06);
+    --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12151a;
+      --bg-subtle:#1a1e25;
+      --surface:#171b21;
+      --ink:#eef1f5;
+      --ink-2:#b7bfc9;
+      --ink-3:#7c8592;
+      --accent:#8fb2dc;
+      --accent-2:#6f98c9;
+      --accent-soft:#1e2a3b;
+      --rule:#2a2f38;
+      --border:#2a2f38;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12151a;
+    --bg-subtle:#1a1e25;
+    --surface:#171b21;
+    --ink:#eef1f5;
+    --ink-2:#b7bfc9;
+    --ink-3:#7c8592;
+    --accent:#8fb2dc;
+    --accent-2:#6f98c9;
+    --accent-soft:#1e2a3b;
+    --rule:#2a2f38;
+    --border:#2a2f38;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 28px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:var(--serif);
+    color:var(--ink);
+    text-wrap:balance;
+    margin:0;
+  }
+  a{ color:var(--accent-2); text-decoration-color: var(--border); text-underline-offset:3px; }
+  a:hover{ color:var(--accent); }
+  p{ line-height:1.65; color:var(--ink-2); margin:0; }
+
+  .wrap{ max-width:960px; margin:0 auto; padding-inline:24px; }
+
+  /* ---------- top nav ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:20;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topnav .wrap{ display:flex; align-items:center; justify-content:space-between; height:60px; max-width:1040px; }
+  .brand{ font-family:var(--serif); font-weight:600; font-size:1.05rem; color:var(--ink); letter-spacing:0.01em; }
+  .navlinks{ display:flex; gap:28px; align-items:center; }
+  .navlinks button{
+    font-family:var(--sans); font-size:0.92rem; font-weight:600; color:var(--ink-2);
+    background:none; border:none; cursor:pointer; padding:8px 2px; position:relative;
+  }
+  .navlinks button.active{ color:var(--accent); }
+  .navlinks button.active::after{
+    content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--accent); border-radius:2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{ position:relative; overflow:hidden; }
+  .hero-img{
+    height:280px; width:100%; object-fit:cover; display:block;
+    filter: saturate(0.85);
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(15,22,33,0.35) 0%, rgba(15,22,33,0.78) 100%);
+  }
+  .hero-content{
+    position:absolute; left:0; right:0; bottom:0;
+    max-width:1040px; margin:0 auto; padding: 0 24px 28px;
+  }
+  .hero-content h1{ color:#fbfcfe; font-size:clamp(1.7rem, 4vw, 2.5rem); font-weight:600; }
+  .hero-content .tagline{ color:#dbe4f0; font-family:var(--sans); font-size:1.02rem; margin-top:8px; font-weight:500; }
+  .hero-content .affil{ color:#aebedc; font-family:var(--mono); font-size:0.82rem; margin-top:6px; letter-spacing:0.02em; }
+
+  /* ---------- sections ---------- */
+  section{ padding-block: 52px; }
+  .section-label{
+    font-family:var(--mono); font-size:0.74rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--accent-2); margin-bottom:10px; display:block; font-weight:500;
+  }
+  .divider{ border:none; border-top:1px solid var(--rule); margin:0; }
+
+  /* ---------- home layout ---------- */
+  .bio-grid{ display:grid; grid-template-columns: 1.6fr 1fr; gap:44px; align-items:start; }
+  .bio-grid p + p{ margin-top:16px; }
+  .bio-grid h2{ font-size:1.5rem; margin-bottom:18px; font-weight:600; }
+
+  .card{
+    background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    padding:22px 24px; box-shadow:var(--shadow);
+  }
+  .card h3{
+    font-size:0.78rem; letter-spacing:0.08em; text-transform:uppercase; font-family:var(--mono);
+    color:var(--ink-3); font-weight:500; margin-bottom:14px;
+  }
+  .affil-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .affil-list li{ font-size:0.92rem; color:var(--ink-2); line-height:1.5; padding-left:14px; position:relative; }
+  .affil-list li::before{
+    content:""; position:absolute; left:0; top:0.55em; width:5px; height:5px; border-radius:50%; background:var(--accent-2);
+  }
+
+  .interests{ margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; }
+  .chip{
+    font-family:var(--mono); font-size:0.76rem; color:var(--accent); background:var(--accent-soft);
+    padding:5px 10px; border-radius:999px; border:1px solid var(--border);
+  }
+
+  .portrait{
+    width:100%; aspect-ratio: 4/5; object-fit:cover; border-radius:10px;
+    border:1px solid var(--border); box-shadow:var(--shadow); margin-bottom:20px; display:block;
+  }
+  .contact-card{ margin-top:20px; }
+  .contact-row{ display:flex; gap:10px; font-size:0.88rem; color:var(--ink-2); margin-bottom:8px; }
+  .contact-row .k{ font-family:var(--mono); color:var(--ink-3); min-width:58px; font-size:0.78rem; padding-top:2px; }
+  .cv-btn{
+    display:inline-flex; align-items:center; gap:8px; margin-top:20px;
+    background:var(--accent); color:#fff; font-weight:600; font-size:0.88rem;
+    padding:10px 18px; border-radius:7px; text-decoration:none;
+  }
+  .cv-btn:hover{ background:var(--accent-2); color:#fff; }
+
+  /* ---------- research layout ---------- */
+  .research-intro{ max-width:640px; margin-bottom:8px; }
+  .paper{
+    display:grid; grid-template-columns: 1.15fr 1fr; gap:40px; align-items:start;
+    padding-block:44px; border-top:1px solid var(--rule);
+  }
+  .paper:first-of-type{ border-top:none; padding-top: 28px; }
+  .paper-kicker{
+    font-family:var(--mono); font-size:0.74rem; color:var(--ink-3); letter-spacing:0.06em; text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .paper h2{ font-size:1.28rem; line-height:1.35; font-weight:600; }
+  .paper h2 a{ color:var(--ink); }
+  .paper h2 a:hover{ color:var(--accent); }
+  .coauthors{ font-size:0.92rem; color:var(--ink-2); margin-top:8px; }
+  .coauthors a{ font-weight:600; }
+  .abstract{ margin-top:14px; font-size:0.94rem; }
+  .abstract .lbl{ font-weight:600; color:var(--ink); font-family:var(--sans); }
+  .media-note{
+    margin-top:14px; font-size:0.86rem; color:var(--ink-2); background:var(--bg-subtle);
+    border-left:3px solid var(--accent-2); padding:9px 12px; border-radius:0 6px 6px 0;
+  }
+  .paper-links{ margin-top:16px; display:flex; gap:14px; flex-wrap:wrap; }
+  .paper-links a{ font-size:0.86rem; font-weight:600; font-family:var(--sans); }
+  .paper-links a::after{ content:" \2192"; }
+
+  .figure-panel{
+    background:var(--bg-subtle); border:1px solid var(--border); border-radius:10px; padding:14px;
+    box-shadow:var(--shadow);
+  }
+  .figure-panel img{ width:100%; height:auto; display:block; border-radius:4px; background:#fff; }
+  .figure-cap{
+    margin-top:10px; font-size:0.78rem; color:var(--ink-3); line-height:1.5; font-family:var(--sans);
+  }
+  .figure-cap b{ color:var(--ink-2); }
+
+  footer{ border-top:1px solid var(--rule); padding-block:30px; }
+  footer .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  footer p{ font-size:0.8rem; color:var(--ink-3); }
+
+  [hidden]{ display:none !important; }
+
+  @media (max-width: 760px){
+    .bio-grid{ grid-template-columns:1fr; }
+    .paper{ grid-template-columns:1fr; gap:20px; }
+    .hero-img{ height:220px; }
+    .navlinks{ gap:18px; }
+  }
+</style>
+
+<div class="topnav">
+  <div class="wrap">
+    <div class="brand">Rohit Reddy Muddasani</div>
+    <div class="navlinks">
+      <button type="button" class="active" data-page="home">Home</button>
+      <button type="button" data-page="research">Research</button>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <img class="hero-img" src="assets/banner.jpg" alt="Vienna skyline">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Rohit Reddy Muddasani</h1>
+    <div class="tagline">Public &amp; Tax Economics &middot; Applied Microeconomics</div>
+    <div class="affil">WU (Vienna University of Economics and Business)</div>
+  </div>
+</div>
+
+<!-- ================= HOME ================= -->
+<main id="page-home">
+  <section class="wrap">
+    <div class="bio-grid">
+      <div>
+        <span class="section-label">About</span>
+        <h2>Hi, I'm Rohit.</h2>
+        <p>I finished my PhD in International Business Taxation (Economics Track, DIBT) at the Vienna University of Economics and Business (WU) in June 2026. My research currently focuses on business taxation, with studies in tax incidence, tax avoidance, and tax planning.</p>
+        <p>My broader interests span public and tax economics, applied microeconomics, and applied industrial organization &mdash; I use quasi-experimental designs and administrative micro-data to trace how firms and individuals respond to tax policy and enforcement.</p>
+
+        <div class="interests">
+          <span class="chip">Tax Incidence</span>
+          <span class="chip">Tax Avoidance</span>
+          <span class="chip">Tax Planning</span>
+          <span class="chip">Public Economics</span>
+          <span class="chip">Applied IO</span>
+        </div>
+
+        <a class="cv-btn" href="https://drive.google.com/file/d/1PzJkXfFmtY4ytqZBNxzWz50V6uVgH2uh/view?usp=drive_link" target="_blank" rel="noopener">
+          Curriculum Vitae &nbsp;&rarr;
+        </a>
+      </div>
+
+      <div>
+        <img class="portrait" src="assets/headshot.jpg" alt="Rohit Reddy Muddasani">
+
+        <div class="card">
+          <h3>Affiliation</h3>
+          <ul class="affil-list">
+            <li>PhD Candidate (DIBT), <a href="https://www.wu.ac.at/dibt/about" target="_blank" rel="noopener">Doctoral Program in International Business Taxation</a></li>
+            <li><a href="https://www.wu.ac.at/" target="_blank" rel="noopener">Vienna University of Economics and Business (WU)</a></li>
+          </ul>
+        </div>
+
+        <div class="card contact-card">
+          <h3>Contact</h3>
+          <div class="contact-row"><span class="k">Email</span><span>rohit.reddy.muddasani@wu.ac.at<br>rohitreddy.muddasani@gmail.com</span></div>
+          <div class="contact-row"><span class="k">Phone</span><span>+43 660 6164018</span></div>
+          <div class="contact-row"><span class="k">Office</span><span>D3.4.433, Vienna University of Economics and Business, Welthandelsplatz 1, 1020 Vienna, Austria</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= RESEARCH ================= -->
+<main id="page-research" hidden>
+  <section class="wrap">
+    <span class="section-label">Working Papers</span>
+    <h2 style="font-size:1.6rem; font-weight:600;">Research</h2>
+    <p class="research-intro" style="margin-top:12px;">Each paper below is shown with its key event-study estimate &mdash; the dynamic treatment effect around the relevant policy or event, together with 95% confidence intervals.</p>
+
+    <!-- Paper 1 -->
+    <article class="paper">
+      <div>
+        <div class="paper-kicker">Working Paper &middot; DAC6 &middot; Cross-border deposits</div>
+        <h2><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4243856" target="_blank" rel="noopener">So close and yet so far: The ability of mandatory disclosure rules to crack down on offshore tax evasion</a></h2>
+        <div class="coauthors">with <a href="https://sites.google.com/view/elisacasieberhard/home" target="_blank" rel="noopener">Elisa Casi-Eberhard</a> &amp; <a href="https://sites.google.com/site/webpagemohammedmardan/" target="_blank" rel="noopener">Mohammed Mardan</a></div>
+        <p class="abstract"><span class="lbl">Abstract.</span> We study the effect of mandatory disclosure rules on aggressive tax planning arrangements. We focus on the one introduced in 2018 under the Council Directive 2018/288/EU (or DAC6) and study its effect on tax evasion. We show a reduction of cross-border deposits in EU countries with a strong enforcement but also a relocation of funds to countries with limited intermediary reporting obligation. Finally, we detect an increase of USD 14 billion in cross-border deposits held by residents of countries offering citizenship/residence by investment programs, suggesting the use of these schemes as regulatory arbitrage to circumvent the disclosure mandated under DAC6.</p>
+        <div class="paper-links">
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4243856" target="_blank" rel="noopener">SSRN</a>
+        </div>
+      </div>
+      <div class="figure-panel">
+        <img src="assets/fig-dac6.png" alt="Figure 4: Dynamic effect of DAC6 on EU-owned deposits, within and outside the EU">
+        <div class="figure-cap"><b>Figure 4.</b> Dynamic effect of DAC6 on EU-owned deposits, within vs. outside the EU. Deposits held within the EU rise after the DAC6 event date, while deposits held outside the EU show no comparable shift &mdash; consistent with relocation rather than repatriation.</div>
+      </div>
+    </article>
+
+    <!-- Paper 2 -->
+    <article class="paper">
+      <div>
+        <div class="paper-kicker">Working Paper &middot; Digital Service Taxes &middot; Amazon marketplace</div>
+        <h2><a href="https://www.ifo.de/DocDL/cesifo1_wp12713.pdf" target="_blank" rel="noopener">Navigating the Amazon: The Incidence of Digital Service Taxes</a></h2>
+        <div class="coauthors">with <a href="https://dominika-langenmayr.net/" target="_blank" rel="noopener">Dominika Langenmayr</a></div>
+        <p class="abstract"><span class="lbl">Abstract.</span> Firms in the digital economy often pay little tax in the countries where their customers are based. In response, market countries have introduced digital service taxes on the revenue of these firms to indirectly tax their profits. We study the incidence of these taxes using data on Amazon, the largest online retailer. We find that, on average, Amazon increased its fees by roughly half the amount of the digital service tax. Firms using Amazon as a platform have largely passed these increased fees on to consumers. Large digital firms thus bear only a small part of the tax burden, but the tax may nevertheless succeed in making them less competitive relative to brick-and-mortar competitors.</p>
+        <div class="media-note"><b>Media mention:</b> <a href="https://www.economist.com/finance-and-economics/2025/05/23/trump-threatens-50-tariffs-how-might-europe-strike-back" target="_blank" rel="noopener">Trump threatens 50% tariffs. How might Europe strike back?</a> &mdash; The Economist</div>
+        <div class="paper-links">
+          <a href="https://www.ifo.de/DocDL/cesifo1_wp12713.pdf" target="_blank" rel="noopener">Working Paper (PDF)</a>
+        </div>
+      </div>
+      <div class="figure-panel">
+        <img src="assets/fig-amazon.png" alt="Figure 2: Event study of DST implementation on Amazon FBA fees">
+        <div class="figure-cap"><b>Figure 2.</b> Event-study estimates of the effect of DST implementation on FBA fees (imputation estimator, Borusyak et al. 2024). Flat, insignificant pre-trends followed by a sustained increase in fees after the tax takes effect &mdash; evidence of pass-through onto sellers.</div>
+      </div>
+    </article>
+
+    <!-- Paper 3 -->
+    <article class="paper">
+      <div>
+        <div class="paper-kicker">Working Paper &middot; DAC6 &middot; Firm-level tax planning</div>
+        <h2><a href="https://drive.google.com/file/d/1_0p0SJo7tvWARhcw7_ZdVb27Hfa6bMQX/view?usp=drive_link" target="_blank" rel="noopener">Survive, Heal or Die?: Zombie Firms and Tax Planning</a></h2>
+        <div class="coauthors">solo-authored</div>
+        <p class="abstract"><span class="lbl">Abstract.</span> Zombie firms are firms that continue to operate despite prolonged periods of financial distress. When part of a group, such firms may serve as tax planning instruments by facilitating profit shifting or loss offsets. This paper studies the role of zombie firms in group-level tax planning by examining their response to DAC6, an EU directive mandating the disclosure of aggressive tax planning arrangements. Using firm-level data from ORBIS and a differences-in-differences design, I find that following DAC6, group zombie firms in the EU are more likely to exit the market than their non-EU counterparts. Among surviving firms, the probability of remaining a zombie declines for EU group firms. Heterogeneity analyses show that both firm location and group headquarters location shape these responses, highlighting how zombie firms are used within groups for tax planning purposes.</p>
+        <div class="paper-links">
+          <a href="https://drive.google.com/file/d/1_0p0SJo7tvWARhcw7_ZdVb27Hfa6bMQX/view?usp=drive_link" target="_blank" rel="noopener">Working Paper (PDF)</a>
+        </div>
+      </div>
+      <div class="figure-panel">
+        <img src="assets/fig-zombie.png" alt="Figure A.4: Event study of zombie firm closure probability around DAC6 introduction">
+        <div class="figure-cap"><b>Figure A.4.</b> Zombie firm closure probability, standalone vs. group firms. EU group firms show no change in closure probability after DAC6, while non-EU group firms become noticeably more likely to exit &mdash; consistent with EU zombie firms being retained as tax-planning vehicles.</div>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; Rohit Reddy Muddasani &middot; Vienna University of Economics and Business</p>
+    <p>rohitreddy.muddasani@gmail.com</p>
+  </div>
+</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.navlinks button');
+  const pages = { home: document.getElementById('page-home'), research: document.getElementById('page-research') };
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.page;
+      buttons.forEach(b => b.classList.toggle('active', b === btn));
+      Object.entries(pages).forEach(([key, el]) => { el.hidden = key !== target; });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  });
+</script>
