@@ -332,6 +332,23 @@
       margin-top: 19px;
     }
 
+    .finding-list {
+      margin: 0;
+      padding-left: 21px;
+    }
+
+    .finding-list li {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      line-height: 1.58;
+      color: var(--ink-2);
+      margin-bottom: 8px;
+    }
+
+    .finding-list li:last-child {
+      margin-bottom: 0;
+    }
+
     .details p {
       font-family: var(--serif);
       font-size: 0.98rem;
@@ -571,7 +588,7 @@
               </div>
             </div>
 
-            <span class="status">Job Market Paper</span>
+            <span class="status">Working Paper</span>
           </div>
 
           <div class="tags">
@@ -601,9 +618,7 @@
             </div>
           </div>
 
-          <!-- Media and policy impact from CV -->
           <div class="paper-highlights">
-
             <div class="highlight-box">
               <h3>Media Mentions</h3>
               <ul>
@@ -629,7 +644,6 @@
                 </li>
               </ul>
             </div>
-
           </div>
 
           <div class="paper-actions">
@@ -641,7 +655,6 @@
               Abstract / Details <span>&rarr;</span>
             </button>
 
-            <!-- Replace this href with the final paper URL if desired. -->
             <a
               class="download-btn"
               href="https://ssrn.com/abstract=6923641"
@@ -655,22 +668,38 @@
           <div class="details" id="details-1">
             <h3>Abstract</h3>
             <p>
-              Digital firms often pay little tax in the countries where their
-              customers are located. Digital Service Taxes (DSTs) address this
-              issue by taxing revenues generated from users in market
-              countries. This paper studies the incidence of DSTs using
-              detailed data from Amazon and examines how the tax is transmitted
-              through the platform from the platform to third-party sellers
-              and ultimately to consumers.
+              Firms in the digital economy often pay little tax in the countries
+              where their customers are based. In response, market countries have
+              introduced digital service taxes on the revenue of these firms to
+              indirectly tax their profits. We study the incidence of these taxes
+              using data on Amazon, the largest online retailer. We find that in
+              most countries, Amazon increased its fees by roughly the amount of
+              the digital service tax. Firms using Amazon as a platform have
+              largely passed these increased fees on to consumers. Large digital
+              firms thus bear only a small part of the tax burden, but the tax may
+              nevertheless succeed in making them less competitive relative to
+              brick-and-mortar retailers.
             </p>
+
+            <h3>Key Findings</h3>
+            <ul class="finding-list">
+              <li>A one percentage point increase in the DST raises Amazon's FBA fees by around 0.5%.</li>
+              <li>Pass-through differs across countries: it is more than full in the UK, close to full in France and Spain, and small and statistically insignificant in Italy.</li>
+              <li>Prices for products sold through FBA increase by about 2% following the DST in France, Spain and the UK, with no significant price response in Italy.</li>
+              <li>Consumers bear an estimated 1.5 to 2.5 euros (or pounds) for each euro (or pound) of DST revenue in the countries with substantial pass-through, indicating more-than-full pass-through.</li>
+              <li>Pass-through is stronger for lower-priced goods and weaker for products with highly volatile prices, consistent with differences in the size of the cost shock and the role of algorithmic pricing.</li>
+              <li>The results imply that DSTs are largely borne by domestic market participants rather than the targeted foreign digital firms, while potentially reducing the competitive advantage of digital platforms relative to brick-and-mortar retailers.</li>
+            </ul>
 
             <h3>Empirical Strategy</h3>
             <p>
-              The analysis uses the staggered introduction of DSTs in France,
-              Italy, Spain and the UK, with Germany serving as an untreated
-              comparison country. The paper first examines the effect of DSTs
-              on Amazon's fees to third-party sellers and then studies how
-              changes in those fees are reflected in product prices.
+              The paper first examines Amazon's Fulfillment by Amazon (FBA) fees
+              using variation from the introduction of DSTs in France, Italy,
+              Spain and the United Kingdom, with Germany as the comparison
+              country. It then studies consumer prices using identical products
+              sold by third-party sellers using FBA and products sold directly by
+              Amazon. An instrumental-variable analysis using DST-induced changes
+              in platform fees provides an additional robustness check.
             </p>
           </div>
         </article>
@@ -693,19 +722,19 @@
               </div>
             </div>
 
-            <span class="status working">Working Paper</span>
+            <span class="status">Working Paper</span>
           </div>
 
           <div class="tags">
             <span class="tag">Tax Evasion</span>
             <span class="tag">Tax Transparency</span>
-            <span class="tag">Public Economics</span>
+            <span class="tag">International Taxation</span>
           </div>
 
           <p class="paper-summary">
-            Can mandatory disclosure rules actually deter offshore tax
-            evasion—or simply redirect it? We study the introduction of DAC6
-            and examine how individuals respond to increased reporting
+            Can mandatory disclosure rules actually deter offshore tax evasion —
+            or simply redirect it? This paper studies the introduction of DAC6
+            and examines how individuals respond to increased reporting
             requirements using bilateral data on cross-border bank deposits.
           </p>
 
@@ -714,10 +743,10 @@
               <strong>Data:</strong> Bilateral cross-border bank deposits
             </div>
             <div class="meta-item">
-              <strong>Policy:</strong> EU Mandatory Disclosure Rules (DAC6)
+              <strong>Method:</strong> Difference-in-differences &amp; event study
             </div>
             <div class="meta-item">
-              <strong>Method:</strong> Quasi-experimental policy analysis
+              <strong>Setting:</strong> EU residents &amp; non-EU OECD residents
             </div>
           </div>
 
@@ -730,7 +759,6 @@
               Abstract / Details <span>&rarr;</span>
             </button>
 
-            <!-- Replace this href with the final paper URL if desired. -->
             <a
               class="download-btn"
               href="https://ssrn.com/abstract=6838599"
@@ -744,19 +772,42 @@
           <div class="details" id="details-2">
             <h3>Abstract</h3>
             <p>
-              This paper studies whether mandatory disclosure rules can reduce
-              offshore tax evasion. We examine the introduction of the
-              European Union's Directive on Administrative Cooperation (DAC6)
-              using bilateral data on cross-border deposits.
+              We study the short-term effect of the introduction of the mandatory
+              disclosure program for aggressive tax arrangements by focusing on
+              the one introduced in May 2018 under the Council Directive
+              2018/288/EU (or DAC6). Employing bilateral data on cross-border
+              deposits, we study the effect of this new disclosure requirement on
+              cross-border tax evasion. Our results show a reduction of
+              cross-border deposits in EU countries with a strong enforcement,
+              captured by large monetary penalties for misreporting. At the same
+              time, we document a relocation of income and wealth to countries
+              with limited intermediary reporting obligation. Finally, we detect
+              a short-term increase of USD 14 billion in cross-border deposits
+              held by residents of countries offering citizenship/residence by
+              investment programs, suggesting the use of these schemes as
+              regulatory arbitrage to circumvent the disclosure mandated under
+              DAC6. We provide timely and relevant evidence contributing to the
+              debate on international administrative cooperation to reduce
+              cross-border tax evasion.
             </p>
 
-            <h3>Key Finding</h3>
+            <h3>Key Findings</h3>
+            <ul class="finding-list">
+              <li>Cross-border deposits of EU residents in the EU increase by 11% after DAC6, corresponding to approximately USD 124 billion.</li>
+              <li>In Spain, where enforcement is particularly strong because penalties are proportional to the value of the incorrectly reported transaction, cross-border deposits decrease by approximately 16% after DAC6.</li>
+              <li>France experiences an approximately 30% increase in cross-border deposits, consistent with the relocation of income and wealth toward an environment with broader legal professional privilege.</li>
+              <li>Residents of citizenship-by-investment and residence-by-investment countries increase their cross-border deposits by approximately 30% after DAC6, corresponding to around USD 14 billion, of which about USD 7 billion is in tax havens outside the EU.</li>
+              <li>Placebo tests using countries with similar disclosure rules already in place before DAC6 do not find a statistically significant treatment effect.</li>
+              <li>Taken together, the findings indicate that mandatory disclosure can affect offshore behavior, but differences in enforcement and reporting obligations create opportunities for regulatory arbitrage.</li>
+            </ul>
+
+            <h3>Empirical Strategy</h3>
             <p>
-              Stronger enforcement is associated with reductions in deposits
-              in affected EU countries, while some wealth appears to relocate
-              toward jurisdictions with weaker intermediary reporting
-              obligations. The evidence points to regulatory arbitrage rather
-              than a complete elimination of offshore activity.
+              The study uses bilateral data from the Bank for International
+              Settlements and a difference-in-differences and event-study design.
+              EU residents are compared before and after DAC6 with non-EU OECD
+              residents, who are not affected by the EU directive but face a
+              similar economic and fiscal environment.
             </p>
           </div>
         </article>
@@ -770,7 +821,7 @@
               <div class="paper-number">03</div>
 
               <h2>
-                Survive, Heal or Die?: Zombie Firms and Tax Planning
+                Survive, Heal or Die? Zombie Firms and Tax Planning
               </h2>
 
               <div class="authors">
@@ -778,13 +829,13 @@
               </div>
             </div>
 
-            <span class="status wip">Work in Progress</span>
+            <span class="status">Work in Progress</span>
           </div>
 
           <div class="tags">
-            <span class="tag">Corporate Taxation</span>
-            <span class="tag">Multinational Firms</span>
-            <span class="tag">Firm Behavior</span>
+            <span class="tag">Corporate Tax Planning</span>
+            <span class="tag">Zombie Firms</span>
+            <span class="tag">Tax Transparency</span>
           </div>
 
           <p class="paper-summary">
@@ -796,13 +847,13 @@
 
           <div class="paper-meta">
             <div class="meta-item">
-              <strong>Data:</strong> ORBIS Historical firm-level data
+              <strong>Data:</strong> ORBIS firm-level financial data
             </div>
             <div class="meta-item">
-              <strong>Focus:</strong> Multinational groups and distressed firms
+              <strong>Method:</strong> Difference-in-differences &amp; placebo tests
             </div>
             <div class="meta-item">
-              <strong>Method:</strong> Difference-in-differences and placebo tests
+              <strong>Setting:</strong> Group-affiliated firms across countries
             </div>
           </div>
 
@@ -819,26 +870,45 @@
           <div class="details" id="details-3">
             <h3>Abstract</h3>
             <p>
-              This paper investigates financially distressed firms within
-              multinational groups and asks whether some persistent
-              loss-making affiliates may be maintained because they facilitate
-              corporate tax planning. The analysis compares standalone
-              distressed firms with group-affiliated firms and examines how
-              their behavior changes following changes in the regulatory
-              environment.
+              Zombie firms are firms that continue to operate despite prolonged
+              periods of financial distress. When part of a group, such firms may
+              serve as tax planning instruments by facilitating profit shifting or
+              loss offsets. This paper studies the role of zombie firms in
+              group-level tax planning by examining their response to DAC6, an EU
+              directive mandating the disclosure of aggressive tax planning
+              arrangements. Using firm-level data from ORBIS and a
+              differences-in-differences design, I find that following DAC6, group
+              zombie firms in the EU are more likely to exit the market than their
+              non-EU counterparts. Among surviving firms, the probability of
+              remaining a zombie declines for EU group firms. Heterogeneity
+              analyses show that both firm location and group headquarters
+              location shape these responses, highlighting how zombie firms are
+              used within groups for tax planning purposes.
             </p>
 
-            <h3>Research Design</h3>
+            <h3>Key Findings</h3>
+            <ul class="finding-list">
+              <li>Group-affiliated zombie firms in the EU experience significantly higher exit rates after DAC6 than comparable group firms outside the EU.</li>
+              <li>The estimated effect corresponds to approximately 3,400 excess closures of group zombie firms in the EU; a direct EU-versus-non-EU comparison gives an estimate of around 2,100 additional closures attributable to DAC6.</li>
+              <li>The prevalence of zombie firms among group firms in the EU declines significantly after DAC6, with baseline estimates indicating approximately 32,000 fewer zombie firm occurrences relative to comparable firms outside the EU.</li>
+              <li>Both affiliate location and headquarters location shape the response, with firms headquartered in the EU responding more strongly to the increased disclosure requirements.</li>
+              <li>EU group firms pay significantly higher taxes following DAC6, with estimated additional tax payments of approximately $9 billion over a five-year period.</li>
+              <li>Despite the decline in zombie firm occurrence and higher tax payments, reported net profits remain muted and there is no corresponding increase in profitability or equity infusion, highlighting limitations of the directive.</li>
+            </ul>
+
+            <h3>Empirical Strategy</h3>
             <p>
-              The study uses ORBIS Historical firm-level data and combines
-              difference-in-differences and placebo tests to examine differences
-              between standalone and multinational-group-affiliated firms.
+              The study uses firm-level financial data from ORBIS and exploits
+              quasi-experimental variation created by DAC6 across firm type and
+              geographic location. It examines zombie-firm exit and the
+              probability of remaining a zombie using a differences-in-
+              differences design, with additional heterogeneity and placebo
+              analyses.
             </p>
           </div>
         </article>
 
       </div>
-
 
       <!-- ---------- RESEARCH AGENDA ---------- -->
 
@@ -890,4 +960,3 @@
 
 </body>
 </html>
-
