@@ -588,6 +588,18 @@
         padding: 24px 22px;
       }
     }
+
+    .author-link {
+        color: var(--accent);
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+    
+    .author-link:hover {
+        opacity: 0.7;
+        text-decoration: underline;
+    }
+    
   </style>
 </head>
 
@@ -642,7 +654,12 @@
               </h2>
 
               <div class="authors">
-                Dominika Langenmayr &amp; Rohit Reddy Muddasani
+                <a href="https://www.dominika-langenmayr.net/"
+                   class="author-link"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    Dominika Langenmayr
+                </a> &amp; Rohit Reddy Muddasani
               </div>
             </div>
 
@@ -799,7 +816,12 @@
               </h2>
 
               <div class="authors">
-                Elisa Casi, Mohammed Mardan &amp; Rohit Reddy Muddasani
+                Elisa Casi, <a href="https://sites.google.com/site/webpagemohammedmardan/home"
+                               class="author-link"
+                               target="_blank"
+                               rel="noopener noreferrer">
+                                Mohammed Mardan
+                            </a> &amp; Rohit Reddy Muddasani
               </div>
             </div>
 
