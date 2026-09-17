@@ -268,24 +268,32 @@
     /* ---------- Academic profile links ---------- */
 
     .profile-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-    margin-top: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        margin-top: 10px;
+        margin-bottom: 30px;
     }
     
     .profile-links a {
         display: block;
-        width: 76px;
-        height: 76px;
+        width: 68px;
+        height: 68px;
+        text-decoration: none;
+        transition: transform 0.2s ease, opacity 0.2s ease;
     }
     
     .profile-links img {
-        width: 76px;
-        height: 76px;
+        width: 68px;
+        height: 68px;
         display: block;
         object-fit: contain;
+    }
+    
+    .profile-links a:hover {
+        transform: translateY(-2px);
+        opacity: 0.85;
     }
 
     .side-section {
@@ -570,25 +578,31 @@
 
           <!-- Academic profile links -->
           <div class="profile-links">
-
+          
+              <!-- Google Scholar -->
               <a href="https://scholar.google.com/citations?user=eRnOnFIAAAAJ&hl=en"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="Google Scholar">
+                 aria-label="Google Scholar"
+                 title="Google Scholar">
                   <img src="gscholar_icon.png" alt="Google Scholar">
               </a>
           
+              <!-- ResearchGate -->
               <a href="https://www.researchgate.net/profile/Rohit-Reddy-Muddasani?ev=hdr_xprf"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="ResearchGate">
+                 aria-label="ResearchGate"
+                 title="ResearchGate">
                   <img src="RG.png" alt="ResearchGate">
               </a>
           
+              <!-- LinkedIn -->
               <a href="https://at.linkedin.com/in/rohit-reddy-muddasani-8a6ab7163"
                  target="_blank"
                  rel="noopener noreferrer"
-                 aria-label="LinkedIn">
+                 aria-label="LinkedIn"
+                 title="LinkedIn">
                   <img src="LinkedIn_logo.png" alt="LinkedIn">
               </a>
           
