@@ -555,7 +555,43 @@
         align-items: flex-start;
       }
     }
-  </style>
+  
+/* Field disclosure control: keep the control at the bottom of the
+   table content so it becomes "Hide fields" after expansion. */
+details.field-details {
+  display: flex;
+  flex-direction: column;
+}
+
+details.field-details > summary {
+  order: 2;
+}
+
+details.field-details > .field-table {
+  order: 1;
+}
+
+details.field-details .hide-fields {
+  display: none;
+}
+
+details.field-details[open] .show-fields {
+  display: none;
+}
+
+details.field-details[open] .hide-fields {
+  display: inline;
+}
+
+/* Ensure the disclosure control does not get duplicated or overlay
+   the table when the details element opens. */
+details.field-details > summary {
+  position: static;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+</style>
 
 </head>
 
@@ -725,11 +761,7 @@
 
             </table>
 
-            <details class="all-fields">
-
-              <summary>Show all 32 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Revenue From Operations [Gross]</td></tr>
                   <tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr>
@@ -764,9 +796,7 @@
                   <tr><td>Diluted EPS (Rs.)</td></tr>
                   <tr><td>Equity Share Dividend</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 32 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -800,10 +830,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 31 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Revenue From Operations [Gross]</td></tr>
                   <tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr>
@@ -837,9 +864,7 @@
                   <tr><td>Equity Share Dividend</td></tr>
                   <tr><td>Equity Dividend Rate (%)</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 31 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -873,10 +898,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 36 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Equity Share Capital</td></tr>
                   <tr><td>Total Share Capital</td></tr>
@@ -915,9 +937,7 @@
                   <tr><td>Contingent Liabilities</td></tr>
                   <tr><td>Bonus Equity Share Capital</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 36 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -951,10 +971,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 36 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Equity Share Capital</td></tr>
                   <tr><td>Total Share Capital</td></tr>
@@ -993,9 +1010,7 @@
                   <tr><td>Contingent Liabilities</td></tr>
                   <tr><td>Bonus Equity Share Capital</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 36 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1029,10 +1044,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 9 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr>
                   <tr><td>Net CashFlow From Operating Activities</td></tr>
@@ -1044,9 +1056,7 @@
                   <tr><td>Cash And Cash Equivalents Begin of Year</td></tr>
                   <tr><td>Cash And Cash Equivalents End Of Year</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 9 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1080,10 +1090,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 9 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr>
                   <tr><td>Net CashFlow From Operating Activities</td></tr>
@@ -1095,9 +1102,7 @@
                   <tr><td>Cash And Cash Equivalents Begin of Year</td></tr>
                   <tr><td>Cash And Cash Equivalents End Of Year</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 9 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1155,10 +1160,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 39 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Basic EPS (Rs.)</td></tr>
                   <tr><td>Diluted EPS (Rs.)</td></tr>
@@ -1200,9 +1202,7 @@
                   <tr><td>Price/Net Operating Revenue</td></tr>
                   <tr><td>Earnings Yield</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 39 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1236,10 +1236,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 35 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Basic EPS (Rs.)</td></tr>
                   <tr><td>Diluted EPS (Rs.)</td></tr>
@@ -1277,9 +1274,7 @@
                   <tr><td>Price/Net Operating Revenue</td></tr>
                   <tr><td>Earnings Yield</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 35 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1337,10 +1332,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 42 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Net Sales/Income from operations</td></tr>
                   <tr><td>Other Operating Income</td></tr>
@@ -1385,9 +1377,7 @@
                   <tr><td>No Of Shares (Crores)</td></tr>
                   <tr><td>Share Holding (%)</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 42 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1421,10 +1411,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 6 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Promoters+</td></tr>
                   <tr><td>FIIs+</td></tr>
@@ -1433,9 +1420,7 @@
                   <tr><td>No. of Shareholders</td></tr>
                   <tr><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 6 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1469,10 +1454,7 @@
               </tbody>
             </table>
 
-            <details class="all-fields">
-              <summary>Show all 6 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
                 <tbody>
                   <tr><td>Promoters+</td></tr>
                   <tr><td>FIIs+</td></tr>
@@ -1481,9 +1463,7 @@
                   <tr><td>No. of Shareholders</td></tr>
                   <tr><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr>
                 </tbody>
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 6 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
@@ -1545,11 +1525,7 @@
 
             </table>
 
-            <details class="all-fields">
-
-              <summary>Show all 18 fields</summary>
-
-              <table class="field-table">
+            <details class="all-fields field-details"><table class="field-table">
 
                 <tbody>
 
@@ -1574,9 +1550,7 @@
 
                 </tbody>
 
-              </table>
-
-            </details>
+              </table><summary><span class="show-fields">Show all 18 fields</span><span class="hide-fields">Hide fields</span></summary></details>
 
           </article>
 
