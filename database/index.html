@@ -35,6 +35,9 @@
       --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
       --sans: 'Public Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
+      --accent: #1f3a5f;
+      --accent-2: #3f6591;
+      --accent-soft: #e8edf4;
       --max-width: 1500px;
     }
 
@@ -74,62 +77,57 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255,255,255,0.97);
-      border-bottom: 1px solid #cbd7e3;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--rule);
     }
 
     .topnav .wrap {
-      min-height: 64px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      min-height: 72px;
     }
 
     .brand {
       font-family: var(--serif);
-      font-size: 25px;
       font-weight: 600;
-      color: var(--navy);
+      font-size: 1.15rem;
+      color: var(--ink);
+      letter-spacing: 0.01em;
       text-decoration: none;
-      white-space: nowrap;
     }
 
     .navlinks {
-      height: 64px;
       display: flex;
-      align-items: stretch;
-      gap: 0;
+      gap: 36px;
+      align-items: center;
     }
 
     .navlinks a {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 0 19px;
-      font-family: var(--serif);
-      font-size: 15px;
-      font-weight: 400;
-      color: #40566f;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-2);
       text-decoration: none;
+      padding: 25px 0 22px;
+      position: relative;
     }
 
     .navlinks a:hover,
     .navlinks a.active {
-      color: var(--blue);
-    }
-
-    .navlinks a.active {
-      font-weight: 600;
+      color: var(--accent);
     }
 
     .navlinks a.active::after {
       content: "";
       position: absolute;
-      left: 8px;
-      right: 8px;
+      left: 0;
+      right: 0;
       bottom: -1px;
-      height: 3px;
-      background: var(--blue);
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
     }
 
     /* ---------- Database ---------- */
@@ -155,11 +153,11 @@
 
     .database-header h1 {
       font-family: var(--serif);
-      font-size: 32px;
-      line-height: 1.15;
+      font-size: clamp(2.7rem, 5vw, 3.7rem);
+      line-height: 1.08;
       font-weight: 600;
-      letter-spacing: 0;
-      color: var(--navy);
+      letter-spacing: -0.025em;
+      color: var(--ink);
     }
 
     .database-intro {
@@ -656,7 +654,9 @@ details.field-details > summary {
   <nav class="topnav">
     <div class="wrap">
 
-      <a class="brand" href="../index.html">Rohit Reddy Muddasani</a>
+      <a class="brand" href="../index.html">
+        Rohit Reddy Muddasani
+      </a>
 
       <div class="navlinks">
         <a href="../index.html">Home</a>
