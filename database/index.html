@@ -338,12 +338,7 @@
       color: #294967;
       line-height: 1.2;
     }
-
-    .field-table th:last-child {
-      width: 28%;
-    }
-
-    .field-table td {
+.field-table td {
       padding: 2px 7px;
       border: 1px solid #dce5ed;
       line-height: 1.25;
@@ -357,25 +352,38 @@
 
     /* ---------- Expandable fields ---------- */
 
-    .all-fields {
-      margin-top: 5px;
+    .hidden-field {
+      display: none;
     }
 
-    .all-fields summary {
+    .fields-toggle {
+      display: block;
+      width: 100%;
+      margin-top: 5px;
+      padding: 0;
+      border: 0;
+      background: transparent;
       cursor: pointer;
+      text-align: left;
       color: #075bb5;
       font-family: var(--serif);
       font-size: 12px;
       font-weight: 600;
-      list-style: none;
     }
 
-    .all-fields summary::-webkit-details-marker {
+    .fields-toggle .hide-fields {
       display: none;
     }
 
-    .all-fields summary::after {
-      content: "⌄";
+    .fields-toggle[aria-expanded="true"] .show-fields {
+      display: none;
+    }
+
+    .fields-toggle[aria-expanded="true"] .hide-fields {
+      display: inline;
+    }
+
+    .toggle-arrow {
       display: inline-block;
       margin-left: 7px;
       font-family: var(--sans);
@@ -383,12 +391,8 @@
       transition: transform 0.15s ease;
     }
 
-    .all-fields[open] summary::after {
+    .fields-toggle[aria-expanded="true"] .toggle-arrow {
       transform: rotate(180deg);
-    }
-
-    .all-fields .field-table {
-      margin-top: 7px;
     }
 
     /* ---------- Note ---------- */
@@ -800,16 +804,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Revenue From Operations [Gross]</td></tr>
-                <tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr>
-                <tr><td>Revenue From Operations [Net]</td></tr>
-                <tr><td>Total Operating Revenues</td></tr>
-                <tr><td>Other Income</td></tr>
-              </tbody>
+                <tr><td>Revenue From Operations [Gross]</td></tr><tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr><tr><td>Revenue From Operations [Net]</td></tr><tr><td>Total Operating Revenues</td></tr><tr><td>Other Income</td></tr><tr class="hidden-field"><td>Total Revenue</td></tr><tr class="hidden-field"><td>Cost Of Materials Consumed</td></tr><tr class="hidden-field"><td>Purchase Of Stock-In Trade</td></tr><tr class="hidden-field"><td>Operating And Direct Expenses</td></tr><tr class="hidden-field"><td>Changes In Inventories Of FG,WIP And Stock-In Trade</td></tr><tr class="hidden-field"><td>Employee Benefit Expenses</td></tr><tr class="hidden-field"><td>Finance Costs</td></tr><tr class="hidden-field"><td>Depreciation And Amortisation Expenses</td></tr><tr class="hidden-field"><td>Other Expenses</td></tr><tr class="hidden-field"><td>Total Expenses</td></tr><tr class="hidden-field"><td>Profit/Loss Before Exceptional, ExtraOrdinary Items And Tax</td></tr><tr class="hidden-field"><td>Exceptional Items</td></tr><tr class="hidden-field"><td>Profit/Loss Before Tax</td></tr><tr class="hidden-field"><td>Tax Expenses-Continued Operations</td></tr><tr class="hidden-field"><td>Current Tax</td></tr><tr class="hidden-field"><td>Less: MAT Credit Entitlement</td></tr><tr class="hidden-field"><td>Deferred Tax</td></tr><tr class="hidden-field"><td>Other Direct Taxes</td></tr><tr class="hidden-field"><td>Total Tax Expenses</td></tr><tr class="hidden-field"><td>Profit/Loss After Tax And Before ExtraOrdinary Items</td></tr><tr class="hidden-field"><td>Profit/Loss From Continuing Operations</td></tr><tr class="hidden-field"><td>Profit/Loss For The Period</td></tr><tr class="hidden-field"><td>Minority Interest</td></tr><tr class="hidden-field"><td>Consolidated Profit/Loss After MI And Associates</td></tr><tr class="hidden-field"><td>Basic EPS (Rs.)</td></tr><tr class="hidden-field"><td>Diluted EPS (Rs.)</td></tr><tr class="hidden-field"><td>Equity Share Dividend</td></tr></tbody></table>
 
-            </table>
-
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Revenue From Operations [Gross]</td></tr></tbody><tbody class="additional-fields"><tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr><tr><td>Revenue From Operations [Net]</td></tr><tr><td>Total Operating Revenues</td></tr><tr><td>Other Income</td></tr><tr><td>Total Revenue</td></tr><tr><td>Cost Of Materials Consumed</td></tr><tr><td>Purchase Of Stock-In Trade</td></tr><tr><td>Operating And Direct Expenses</td></tr><tr><td>Changes In Inventories Of FG,WIP And Stock-In Trade</td></tr><tr><td>Employee Benefit Expenses</td></tr><tr><td>Finance Costs</td></tr><tr><td>Depreciation And Amortisation Expenses</td></tr><tr><td>Other Expenses</td></tr><tr><td>Total Expenses</td></tr><tr><td>Profit/Loss Before Exceptional, ExtraOrdinary Items And Tax</td></tr><tr><td>Exceptional Items</td></tr><tr><td>Profit/Loss Before Tax</td></tr><tr><td>Tax Expenses-Continued Operations</td></tr><tr><td>Current Tax</td></tr><tr><td>Less: MAT Credit Entitlement</td></tr><tr><td>Deferred Tax</td></tr><tr><td>Other Direct Taxes</td></tr><tr><td>Total Tax Expenses</td></tr><tr><td>Profit/Loss After Tax And Before ExtraOrdinary Items</td></tr><tr><td>Profit/Loss From Continuing Operations</td></tr><tr><td>Profit/Loss For The Period</td></tr><tr><td>Minority Interest</td></tr><tr><td>Consolidated Profit/Loss After MI And Associates</td></tr><tr><td>Basic EPS (Rs.)</td></tr><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Equity Share Dividend</td></tr></tbody></table><summary><span class="show-fields">Show all 32 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 27 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -835,15 +832,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Revenue From Operations [Gross]</td></tr>
-                <tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr>
-                <tr><td>Revenue From Operations [Net]</td></tr>
-                <tr><td>Total Operating Revenues</td></tr>
-                <tr><td>Other Income</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Revenue From Operations [Gross]</td></tr><tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr><tr><td>Revenue From Operations [Net]</td></tr><tr><td>Total Operating Revenues</td></tr><tr><td>Other Income</td></tr><tr class="hidden-field"><td>Total Revenue</td></tr><tr class="hidden-field"><td>Cost Of Materials Consumed</td></tr><tr class="hidden-field"><td>Purchase Of Stock-In Trade</td></tr><tr class="hidden-field"><td>Operating And Direct Expenses</td></tr><tr class="hidden-field"><td>Changes In Inventories Of FG,WIP And Stock-In Trade</td></tr><tr class="hidden-field"><td>Employee Benefit Expenses</td></tr><tr class="hidden-field"><td>Finance Costs</td></tr><tr class="hidden-field"><td>Depreciation And Amortisation Expenses</td></tr><tr class="hidden-field"><td>Other Expenses</td></tr><tr class="hidden-field"><td>Total Expenses</td></tr><tr class="hidden-field"><td>Profit/Loss Before Exceptional, ExtraOrdinary Items And Tax</td></tr><tr class="hidden-field"><td>Exceptional Items</td></tr><tr class="hidden-field"><td>Profit/Loss Before Tax</td></tr><tr class="hidden-field"><td>Tax Expenses-Continued Operations</td></tr><tr class="hidden-field"><td>Current Tax</td></tr><tr class="hidden-field"><td>Less: MAT Credit Entitlement</td></tr><tr class="hidden-field"><td>Deferred Tax</td></tr><tr class="hidden-field"><td>Tax For Earlier Years</td></tr><tr class="hidden-field"><td>Total Tax Expenses</td></tr><tr class="hidden-field"><td>Profit/Loss After Tax And Before ExtraOrdinary Items</td></tr><tr class="hidden-field"><td>Profit/Loss From Continuing Operations</td></tr><tr class="hidden-field"><td>Profit/Loss For The Period</td></tr><tr class="hidden-field"><td>Basic EPS (Rs.)</td></tr><tr class="hidden-field"><td>Diluted EPS (Rs.)</td></tr><tr class="hidden-field"><td>Equity Share Dividend</td></tr><tr class="hidden-field"><td>Equity Dividend Rate (%)</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Revenue From Operations [Gross]</td></tr></tbody><tbody class="additional-fields"><tr><td>Less: Excise/Sevice Tax/Other Levies</td></tr><tr><td>Revenue From Operations [Net]</td></tr><tr><td>Total Operating Revenues</td></tr><tr><td>Other Income</td></tr><tr><td>Total Revenue</td></tr><tr><td>Cost Of Materials Consumed</td></tr><tr><td>Purchase Of Stock-In Trade</td></tr><tr><td>Operating And Direct Expenses</td></tr><tr><td>Changes In Inventories Of FG,WIP And Stock-In Trade</td></tr><tr><td>Employee Benefit Expenses</td></tr><tr><td>Finance Costs</td></tr><tr><td>Depreciation And Amortisation Expenses</td></tr><tr><td>Other Expenses</td></tr><tr><td>Total Expenses</td></tr><tr><td>Profit/Loss Before Exceptional, ExtraOrdinary Items And Tax</td></tr><tr><td>Exceptional Items</td></tr><tr><td>Profit/Loss Before Tax</td></tr><tr><td>Tax Expenses-Continued Operations</td></tr><tr><td>Current Tax</td></tr><tr><td>Less: MAT Credit Entitlement</td></tr><tr><td>Deferred Tax</td></tr><tr><td>Tax For Earlier Years</td></tr><tr><td>Total Tax Expenses</td></tr><tr><td>Profit/Loss After Tax And Before ExtraOrdinary Items</td></tr><tr><td>Profit/Loss From Continuing Operations</td></tr><tr><td>Profit/Loss For The Period</td></tr><tr><td>Basic EPS (Rs.)</td></tr><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Equity Share Dividend</td></tr><tr><td>Equity Dividend Rate (%)</td></tr></tbody></table><summary><span class="show-fields">Show all 31 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 26 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -869,15 +860,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Equity Share Capital</td></tr>
-                <tr><td>Total Share Capital</td></tr>
-                <tr><td>Reserves and Surplus</td></tr>
-                <tr><td>Total Reserves and Surplus</td></tr>
-                <tr><td>Total Shareholders Funds</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Equity Share Capital</td></tr><tr><td>Total Share Capital</td></tr><tr><td>Reserves and Surplus</td></tr><tr><td>Total Reserves and Surplus</td></tr><tr><td>Total Shareholders Funds</td></tr><tr class="hidden-field"><td>Minority Interest</td></tr><tr class="hidden-field"><td>Long Term Borrowings</td></tr><tr class="hidden-field"><td>Deferred Tax Liabilities [Net]</td></tr><tr class="hidden-field"><td>Other Long Term Liabilities</td></tr><tr class="hidden-field"><td>Long Term Provisions</td></tr><tr class="hidden-field"><td>Total Non-Current Liabilities</td></tr><tr class="hidden-field"><td>Short Term Borrowings</td></tr><tr class="hidden-field"><td>Trade Payables</td></tr><tr class="hidden-field"><td>Other Current Liabilities</td></tr><tr class="hidden-field"><td>Short Term Provisions</td></tr><tr class="hidden-field"><td>Total Current Liabilities</td></tr><tr class="hidden-field"><td>Total Capital And Liabilities</td></tr><tr class="hidden-field"><td>Tangible Assets</td></tr><tr class="hidden-field"><td>Intangible Assets</td></tr><tr class="hidden-field"><td>Capital Work-In-Progress</td></tr><tr class="hidden-field"><td>Fixed Assets</td></tr><tr class="hidden-field"><td>Non-Current Investments</td></tr><tr class="hidden-field"><td>Deferred Tax Assets [Net]</td></tr><tr class="hidden-field"><td>Long Term Loans And Advances</td></tr><tr class="hidden-field"><td>Other Non-Current Assets</td></tr><tr class="hidden-field"><td>Total Non-Current Assets</td></tr><tr class="hidden-field"><td>Current Investments</td></tr><tr class="hidden-field"><td>Inventories</td></tr><tr class="hidden-field"><td>Trade Receivables</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents</td></tr><tr class="hidden-field"><td>Short Term Loans And Advances</td></tr><tr class="hidden-field"><td>OtherCurrentAssets</td></tr><tr class="hidden-field"><td>Total Current Assets</td></tr><tr class="hidden-field"><td>Total Assets</td></tr><tr class="hidden-field"><td>Contingent Liabilities</td></tr><tr class="hidden-field"><td>Bonus Equity Share Capital</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Equity Share Capital</td></tr></tbody><tbody class="additional-fields"><tr><td>Total Share Capital</td></tr><tr><td>Reserves and Surplus</td></tr><tr><td>Total Reserves and Surplus</td></tr><tr><td>Total Shareholders Funds</td></tr><tr><td>Minority Interest</td></tr><tr><td>Long Term Borrowings</td></tr><tr><td>Deferred Tax Liabilities [Net]</td></tr><tr><td>Other Long Term Liabilities</td></tr><tr><td>Long Term Provisions</td></tr><tr><td>Total Non-Current Liabilities</td></tr><tr><td>Short Term Borrowings</td></tr><tr><td>Trade Payables</td></tr><tr><td>Other Current Liabilities</td></tr><tr><td>Short Term Provisions</td></tr><tr><td>Total Current Liabilities</td></tr><tr><td>Total Capital And Liabilities</td></tr><tr><td>Tangible Assets</td></tr><tr><td>Intangible Assets</td></tr><tr><td>Capital Work-In-Progress</td></tr><tr><td>Fixed Assets</td></tr><tr><td>Non-Current Investments</td></tr><tr><td>Deferred Tax Assets [Net]</td></tr><tr><td>Long Term Loans And Advances</td></tr><tr><td>Other Non-Current Assets</td></tr><tr><td>Total Non-Current Assets</td></tr><tr><td>Current Investments</td></tr><tr><td>Inventories</td></tr><tr><td>Trade Receivables</td></tr><tr><td>Cash And Cash Equivalents</td></tr><tr><td>Short Term Loans And Advances</td></tr><tr><td>OtherCurrentAssets</td></tr><tr><td>Total Current Assets</td></tr><tr><td>Total Assets</td></tr><tr><td>Contingent Liabilities</td></tr><tr><td>Bonus Equity Share Capital</td></tr></tbody></table><summary><span class="show-fields">Show all 36 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 31 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -903,15 +888,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Equity Share Capital</td></tr>
-                <tr><td>Total Share Capital</td></tr>
-                <tr><td>Reserves and Surplus</td></tr>
-                <tr><td>Total Reserves and Surplus</td></tr>
-                <tr><td>Total Shareholders Funds</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Equity Share Capital</td></tr><tr><td>Total Share Capital</td></tr><tr><td>Reserves and Surplus</td></tr><tr><td>Total Reserves and Surplus</td></tr><tr><td>Total Shareholders Funds</td></tr><tr class="hidden-field"><td>Long Term Borrowings</td></tr><tr class="hidden-field"><td>Deferred Tax Liabilities [Net]</td></tr><tr class="hidden-field"><td>Other Long Term Liabilities</td></tr><tr class="hidden-field"><td>Long Term Provisions</td></tr><tr class="hidden-field"><td>Total Non-Current Liabilities</td></tr><tr class="hidden-field"><td>Short Term Borrowings</td></tr><tr class="hidden-field"><td>Trade Payables</td></tr><tr class="hidden-field"><td>Other Current Liabilities</td></tr><tr class="hidden-field"><td>Short Term Provisions</td></tr><tr class="hidden-field"><td>Total Current Liabilities</td></tr><tr class="hidden-field"><td>Total Capital And Liabilities</td></tr><tr class="hidden-field"><td>Tangible Assets</td></tr><tr class="hidden-field"><td>Intangible Assets</td></tr><tr class="hidden-field"><td>Capital Work-In-Progress</td></tr><tr class="hidden-field"><td>Other Assets</td></tr><tr class="hidden-field"><td>Fixed Assets</td></tr><tr class="hidden-field"><td>Non-Current Investments</td></tr><tr class="hidden-field"><td>Deferred Tax Assets [Net]</td></tr><tr class="hidden-field"><td>Long Term Loans And Advances</td></tr><tr class="hidden-field"><td>Other Non-Current Assets</td></tr><tr class="hidden-field"><td>Total Non-Current Assets</td></tr><tr class="hidden-field"><td>Current Investments</td></tr><tr class="hidden-field"><td>Inventories</td></tr><tr class="hidden-field"><td>Trade Receivables</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents</td></tr><tr class="hidden-field"><td>Short Term Loans And Advances</td></tr><tr class="hidden-field"><td>OtherCurrentAssets</td></tr><tr class="hidden-field"><td>Total Current Assets</td></tr><tr class="hidden-field"><td>Total Assets</td></tr><tr class="hidden-field"><td>Contingent Liabilities</td></tr><tr class="hidden-field"><td>Bonus Equity Share Capital</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Equity Share Capital</td></tr></tbody><tbody class="additional-fields"><tr><td>Total Share Capital</td></tr><tr><td>Reserves and Surplus</td></tr><tr><td>Total Reserves and Surplus</td></tr><tr><td>Total Shareholders Funds</td></tr><tr><td>Long Term Borrowings</td></tr><tr><td>Deferred Tax Liabilities [Net]</td></tr><tr><td>Other Long Term Liabilities</td></tr><tr><td>Long Term Provisions</td></tr><tr><td>Total Non-Current Liabilities</td></tr><tr><td>Short Term Borrowings</td></tr><tr><td>Trade Payables</td></tr><tr><td>Other Current Liabilities</td></tr><tr><td>Short Term Provisions</td></tr><tr><td>Total Current Liabilities</td></tr><tr><td>Total Capital And Liabilities</td></tr><tr><td>Tangible Assets</td></tr><tr><td>Intangible Assets</td></tr><tr><td>Capital Work-In-Progress</td></tr><tr><td>Other Assets</td></tr><tr><td>Fixed Assets</td></tr><tr><td>Non-Current Investments</td></tr><tr><td>Deferred Tax Assets [Net]</td></tr><tr><td>Long Term Loans And Advances</td></tr><tr><td>Other Non-Current Assets</td></tr><tr><td>Total Non-Current Assets</td></tr><tr><td>Current Investments</td></tr><tr><td>Inventories</td></tr><tr><td>Trade Receivables</td></tr><tr><td>Cash And Cash Equivalents</td></tr><tr><td>Short Term Loans And Advances</td></tr><tr><td>OtherCurrentAssets</td></tr><tr><td>Total Current Assets</td></tr><tr><td>Total Assets</td></tr><tr><td>Contingent Liabilities</td></tr><tr><td>Bonus Equity Share Capital</td></tr></tbody></table><summary><span class="show-fields">Show all 36 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 31 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -937,15 +916,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr>
-                <tr><td>Net CashFlow From Operating Activities</td></tr>
-                <tr><td>Net Cash Used In Investing Activities</td></tr>
-                <tr><td>Net Cash Used From Financing Activities</td></tr>
-                <tr><td>Foreign Exchange Gains / Losses</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr><tr><td>Net CashFlow From Operating Activities</td></tr><tr><td>Net Cash Used In Investing Activities</td></tr><tr><td>Net Cash Used From Financing Activities</td></tr><tr><td>Foreign Exchange Gains / Losses</td></tr><tr class="hidden-field"><td>Adjustments On Amalgamation Merger Demerger Others</td></tr><tr class="hidden-field"><td>Net Inc/Dec In Cash And Cash Equivalents</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents Begin of Year</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents End Of Year</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr></tbody><tbody class="additional-fields"><tr><td>Net CashFlow From Operating Activities</td></tr><tr><td>Net Cash Used In Investing Activities</td></tr><tr><td>Net Cash Used From Financing Activities</td></tr><tr><td>Foreign Exchange Gains / Losses</td></tr><tr><td>Adjustments On Amalgamation Merger Demerger Others</td></tr><tr><td>Net Inc/Dec In Cash And Cash Equivalents</td></tr><tr><td>Cash And Cash Equivalents Begin of Year</td></tr><tr><td>Cash And Cash Equivalents End Of Year</td></tr></tbody></table><summary><span class="show-fields">Show all 9 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 4 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -971,15 +944,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr>
-                <tr><td>Net CashFlow From Operating Activities</td></tr>
-                <tr><td>Net Cash Used In Investing Activities</td></tr>
-                <tr><td>Net Cash Used From Financing Activities</td></tr>
-                <tr><td>Foreign Exchange Gains / Losses</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr><tr><td>Net CashFlow From Operating Activities</td></tr><tr><td>Net Cash Used In Investing Activities</td></tr><tr><td>Net Cash Used From Financing Activities</td></tr><tr><td>Foreign Exchange Gains / Losses</td></tr><tr class="hidden-field"><td>Adjustments On Amalgamation Merger Demerger Others</td></tr><tr class="hidden-field"><td>Net Inc/Dec In Cash And Cash Equivalents</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents Begin of Year</td></tr><tr class="hidden-field"><td>Cash And Cash Equivalents End Of Year</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Net Profit/Loss Before Extraordinary Items And Tax</td></tr></tbody><tbody class="additional-fields"><tr><td>Net CashFlow From Operating Activities</td></tr><tr><td>Net Cash Used In Investing Activities</td></tr><tr><td>Net Cash Used From Financing Activities</td></tr><tr><td>Foreign Exchange Gains / Losses</td></tr><tr><td>Adjustments On Amalgamation Merger Demerger Others</td></tr><tr><td>Net Inc/Dec In Cash And Cash Equivalents</td></tr><tr><td>Cash And Cash Equivalents Begin of Year</td></tr><tr><td>Cash And Cash Equivalents End Of Year</td></tr></tbody></table><summary><span class="show-fields">Show all 9 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 4 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1029,15 +996,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Basic EPS (Rs.)</td></tr>
-                <tr><td>Diluted EPS (Rs.)</td></tr>
-                <tr><td>Cash EPS (Rs.)</td></tr>
-                <tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr>
-                <tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Basic EPS (Rs.)</td></tr><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Cash EPS (Rs.)</td></tr><tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr><tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr><tr class="hidden-field"><td>Dividend / Share(Rs.)</td></tr><tr class="hidden-field"><td>Revenue from Operations/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBDIT/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBIT/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBT/Share (Rs.)</td></tr><tr class="hidden-field"><td>Net Profit/Share (Rs.)</td></tr><tr class="hidden-field"><td>NP After MI And SOA / Share (Rs.)</td></tr><tr class="hidden-field"><td>PBDIT Margin (%)</td></tr><tr class="hidden-field"><td>PBIT Margin (%)</td></tr><tr class="hidden-field"><td>PBT Margin (%)</td></tr><tr class="hidden-field"><td>Net Profit Margin (%)</td></tr><tr class="hidden-field"><td>NP After MI And SOA Margin (%)</td></tr><tr class="hidden-field"><td>Return on Networth / Equity (%)</td></tr><tr class="hidden-field"><td>Return on Capital Employed (%)</td></tr><tr class="hidden-field"><td>Return on Assets (%)</td></tr><tr class="hidden-field"><td>Total Debt/Equity (X)</td></tr><tr class="hidden-field"><td>Asset Turnover Ratio (%)</td></tr><tr class="hidden-field"><td>Current Ratio (X)</td></tr><tr class="hidden-field"><td>Quick Ratio (X)</td></tr><tr class="hidden-field"><td>Inventory Turnover Ratio (X)</td></tr><tr class="hidden-field"><td>Dividend Payout Ratio (NP) (%)</td></tr><tr class="hidden-field"><td>Dividend Payout Ratio (CP) (%)</td></tr><tr class="hidden-field"><td>Earnings Retention Ratio (%)</td></tr><tr class="hidden-field"><td>Cash Earnings Retention Ratio (%)</td></tr><tr class="hidden-field"><td>Interest Coverage Ratios (%)</td></tr><tr class="hidden-field"><td>Interest Coverage Ratios (Post Tax) (%)</td></tr><tr class="hidden-field"><td>Enterprise Value (Cr.)</td></tr><tr class="hidden-field"><td>EV/Net Operating Revenue (X)</td></tr><tr class="hidden-field"><td>EV/EBITDA (X)</td></tr><tr class="hidden-field"><td>MarketCap/Net Operating Revenue (X)</td></tr><tr class="hidden-field"><td>Retention Ratios (%)</td></tr><tr class="hidden-field"><td>Price/BV (X)</td></tr><tr class="hidden-field"><td>Price/Net Operating Revenue</td></tr><tr class="hidden-field"><td>Earnings Yield</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Basic EPS (Rs.)</td></tr></tbody><tbody class="additional-fields"><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Cash EPS (Rs.)</td></tr><tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr><tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr><tr><td>Dividend / Share(Rs.)</td></tr><tr><td>Revenue from Operations/Share (Rs.)</td></tr><tr><td>PBDIT/Share (Rs.)</td></tr><tr><td>PBIT/Share (Rs.)</td></tr><tr><td>PBT/Share (Rs.)</td></tr><tr><td>Net Profit/Share (Rs.)</td></tr><tr><td>NP After MI And SOA / Share (Rs.)</td></tr><tr><td>PBDIT Margin (%)</td></tr><tr><td>PBIT Margin (%)</td></tr><tr><td>PBT Margin (%)</td></tr><tr><td>Net Profit Margin (%)</td></tr><tr><td>NP After MI And SOA Margin (%)</td></tr><tr><td>Return on Networth / Equity (%)</td></tr><tr><td>Return on Capital Employed (%)</td></tr><tr><td>Return on Assets (%)</td></tr><tr><td>Total Debt/Equity (X)</td></tr><tr><td>Asset Turnover Ratio (%)</td></tr><tr><td>Current Ratio (X)</td></tr><tr><td>Quick Ratio (X)</td></tr><tr><td>Inventory Turnover Ratio (X)</td></tr><tr><td>Dividend Payout Ratio (NP) (%)</td></tr><tr><td>Dividend Payout Ratio (CP) (%)</td></tr><tr><td>Earnings Retention Ratio (%)</td></tr><tr><td>Cash Earnings Retention Ratio (%)</td></tr><tr><td>Interest Coverage Ratios (%)</td></tr><tr><td>Interest Coverage Ratios (Post Tax) (%)</td></tr><tr><td>Enterprise Value (Cr.)</td></tr><tr><td>EV/Net Operating Revenue (X)</td></tr><tr><td>EV/EBITDA (X)</td></tr><tr><td>MarketCap/Net Operating Revenue (X)</td></tr><tr><td>Retention Ratios (%)</td></tr><tr><td>Price/BV (X)</td></tr><tr><td>Price/Net Operating Revenue</td></tr><tr><td>Earnings Yield</td></tr></tbody></table><summary><span class="show-fields">Show all 39 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 34 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1063,15 +1024,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Basic EPS (Rs.)</td></tr>
-                <tr><td>Diluted EPS (Rs.)</td></tr>
-                <tr><td>Cash EPS (Rs.)</td></tr>
-                <tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr>
-                <tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Basic EPS (Rs.)</td></tr><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Cash EPS (Rs.)</td></tr><tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr><tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr><tr class="hidden-field"><td>Dividend / Share(Rs.)</td></tr><tr class="hidden-field"><td>Revenue from Operations/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBDIT/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBIT/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBT/Share (Rs.)</td></tr><tr class="hidden-field"><td>Net Profit/Share (Rs.)</td></tr><tr class="hidden-field"><td>PBDIT Margin (%)</td></tr><tr class="hidden-field"><td>PBIT Margin (%)</td></tr><tr class="hidden-field"><td>PBT Margin (%)</td></tr><tr class="hidden-field"><td>Net Profit Margin (%)</td></tr><tr class="hidden-field"><td>Return on Networth / Equity (%)</td></tr><tr class="hidden-field"><td>Return on Capital Employed (%)</td></tr><tr class="hidden-field"><td>Return on Assets (%)</td></tr><tr class="hidden-field"><td>Total Debt/Equity (X)</td></tr><tr class="hidden-field"><td>Asset Turnover Ratio (%)</td></tr><tr class="hidden-field"><td>Current Ratio (X)</td></tr><tr class="hidden-field"><td>Quick Ratio (X)</td></tr><tr class="hidden-field"><td>Inventory Turnover Ratio (X)</td></tr><tr class="hidden-field"><td>Dividend Payout Ratio (NP) (%)</td></tr><tr class="hidden-field"><td>Dividend Payout Ratio (CP) (%)</td></tr><tr class="hidden-field"><td>Earnings Retention Ratio (%)</td></tr><tr class="hidden-field"><td>Cash Earnings Retention Ratio (%)</td></tr><tr class="hidden-field"><td>Enterprise Value (Cr.)</td></tr><tr class="hidden-field"><td>EV/Net Operating Revenue (X)</td></tr><tr class="hidden-field"><td>EV/EBITDA (X)</td></tr><tr class="hidden-field"><td>MarketCap/Net Operating Revenue (X)</td></tr><tr class="hidden-field"><td>Retention Ratios (%)</td></tr><tr class="hidden-field"><td>Price/BV (X)</td></tr><tr class="hidden-field"><td>Price/Net Operating Revenue</td></tr><tr class="hidden-field"><td>Earnings Yield</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Basic EPS (Rs.)</td></tr></tbody><tbody class="additional-fields"><tr><td>Diluted EPS (Rs.)</td></tr><tr><td>Cash EPS (Rs.)</td></tr><tr><td>Book Value [ExclRevalReserve]/Share (Rs.)</td></tr><tr><td>Book Value [InclRevalReserve]/Share (Rs.)</td></tr><tr><td>Dividend / Share(Rs.)</td></tr><tr><td>Revenue from Operations/Share (Rs.)</td></tr><tr><td>PBDIT/Share (Rs.)</td></tr><tr><td>PBIT/Share (Rs.)</td></tr><tr><td>PBT/Share (Rs.)</td></tr><tr><td>Net Profit/Share (Rs.)</td></tr><tr><td>PBDIT Margin (%)</td></tr><tr><td>PBIT Margin (%)</td></tr><tr><td>PBT Margin (%)</td></tr><tr><td>Net Profit Margin (%)</td></tr><tr><td>Return on Networth / Equity (%)</td></tr><tr><td>Return on Capital Employed (%)</td></tr><tr><td>Return on Assets (%)</td></tr><tr><td>Total Debt/Equity (X)</td></tr><tr><td>Asset Turnover Ratio (%)</td></tr><tr><td>Current Ratio (X)</td></tr><tr><td>Quick Ratio (X)</td></tr><tr><td>Inventory Turnover Ratio (X)</td></tr><tr><td>Dividend Payout Ratio (NP) (%)</td></tr><tr><td>Dividend Payout Ratio (CP) (%)</td></tr><tr><td>Earnings Retention Ratio (%)</td></tr><tr><td>Cash Earnings Retention Ratio (%)</td></tr><tr><td>Enterprise Value (Cr.)</td></tr><tr><td>EV/Net Operating Revenue (X)</td></tr><tr><td>EV/EBITDA (X)</td></tr><tr><td>MarketCap/Net Operating Revenue (X)</td></tr><tr><td>Retention Ratios (%)</td></tr><tr><td>Price/BV (X)</td></tr><tr><td>Price/Net Operating Revenue</td></tr><tr><td>Earnings Yield</td></tr></tbody></table><summary><span class="show-fields">Show all 35 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 30 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1121,15 +1076,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Net Sales/Income from operations</td></tr>
-                <tr><td>Other Operating Income</td></tr>
-                <tr><td>Total Income From Operations</td></tr>
-                <tr><td>Consumption of Raw Materials</td></tr>
-                <tr><td>Purchase of Traded Goods</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Net Sales/Income from operations</td></tr><tr><td>Other Operating Income</td></tr><tr><td>Total Income From Operations</td></tr><tr><td>Consumption of Raw Materials</td></tr><tr><td>Purchase of Traded Goods</td></tr><tr class="hidden-field"><td>Increase/Decrease in Stocks</td></tr><tr class="hidden-field"><td>Power &amp; Fuel</td></tr><tr class="hidden-field"><td>Employees Cost</td></tr><tr class="hidden-field"><td>Depreciation</td></tr><tr class="hidden-field"><td>Excise Duty</td></tr><tr class="hidden-field"><td>Admin. And Selling Expenses</td></tr><tr class="hidden-field"><td>R &amp; D Expenses</td></tr><tr class="hidden-field"><td>Provisions And Contingencies</td></tr><tr class="hidden-field"><td>Exp. Capitalised</td></tr><tr class="hidden-field"><td>Other Expenses</td></tr><tr class="hidden-field"><td>P/L Before Other Inc., Int., Excpt. Items &amp; Tax</td></tr><tr class="hidden-field"><td>Other Income</td></tr><tr class="hidden-field"><td>P/L Before Int., Excpt. Items &amp; Tax</td></tr><tr class="hidden-field"><td>Interest</td></tr><tr class="hidden-field"><td>P/L Before Exceptional Items &amp; Tax</td></tr><tr class="hidden-field"><td>Exceptional Items</td></tr><tr class="hidden-field"><td>P/L Before Tax</td></tr><tr class="hidden-field"><td>Tax</td></tr><tr class="hidden-field"><td>P/L After Tax from Ordinary Activities</td></tr><tr class="hidden-field"><td>Prior Year Adjustments</td></tr><tr class="hidden-field"><td>Extra Ordinary Items</td></tr><tr class="hidden-field"><td>Net Profit/(Loss) For the Period</td></tr><tr class="hidden-field"><td>Minority Interest</td></tr><tr class="hidden-field"><td>Share Of P/L Of Associates</td></tr><tr class="hidden-field"><td>Net P/L After M.I &amp; Associates</td></tr><tr class="hidden-field"><td>Equity Share Capital</td></tr><tr class="hidden-field"><td>Reserves Excluding Revaluation Reserves</td></tr><tr class="hidden-field"><td>Equity Dividend Rate (%)</td></tr><tr class="hidden-field"><td>EPS Before Extra Ordinary</td></tr><tr class="hidden-field"><td>Basic EPS</td></tr><tr class="hidden-field"><td>Diluted EPS</td></tr><tr class="hidden-field"><td>EPS After Extra Ordinary</td></tr><tr class="hidden-field"><td>Basic EPS.</td></tr><tr class="hidden-field"><td>Diluted EPS.</td></tr><tr class="hidden-field"><td>Public Share Holding</td></tr><tr class="hidden-field"><td>No Of Shares (Crores)</td></tr><tr class="hidden-field"><td>Share Holding (%)</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Net Sales/Income from operations</td></tr></tbody><tbody class="additional-fields"><tr><td>Other Operating Income</td></tr><tr><td>Total Income From Operations</td></tr><tr><td>Consumption of Raw Materials</td></tr><tr><td>Purchase of Traded Goods</td></tr><tr><td>Increase/Decrease in Stocks</td></tr><tr><td>Power &amp; Fuel</td></tr><tr><td>Employees Cost</td></tr><tr><td>Depreciation</td></tr><tr><td>Excise Duty</td></tr><tr><td>Admin. And Selling Expenses</td></tr><tr><td>R &amp; D Expenses</td></tr><tr><td>Provisions And Contingencies</td></tr><tr><td>Exp. Capitalised</td></tr><tr><td>Other Expenses</td></tr><tr><td>P/L Before Other Inc., Int., Excpt. Items &amp; Tax</td></tr><tr><td>Other Income</td></tr><tr><td>P/L Before Int., Excpt. Items &amp; Tax</td></tr><tr><td>Interest</td></tr><tr><td>P/L Before Exceptional Items &amp; Tax</td></tr><tr><td>Exceptional Items</td></tr><tr><td>P/L Before Tax</td></tr><tr><td>Tax</td></tr><tr><td>P/L After Tax from Ordinary Activities</td></tr><tr><td>Prior Year Adjustments</td></tr><tr><td>Extra Ordinary Items</td></tr><tr><td>Net Profit/(Loss) For the Period</td></tr><tr><td>Minority Interest</td></tr><tr><td>Share Of P/L Of Associates</td></tr><tr><td>Net P/L After M.I &amp; Associates</td></tr><tr><td>Equity Share Capital</td></tr><tr><td>Reserves Excluding Revaluation Reserves</td></tr><tr><td>Equity Dividend Rate (%)</td></tr><tr><td>EPS Before Extra Ordinary</td></tr><tr><td>Basic EPS</td></tr><tr><td>Diluted EPS</td></tr><tr><td>EPS After Extra Ordinary</td></tr><tr><td>Basic EPS.</td></tr><tr><td>Diluted EPS.</td></tr><tr><td>Public Share Holding</td></tr><tr><td>No Of Shares (Crores)</td></tr><tr><td>Share Holding (%)</td></tr></tbody></table><summary><span class="show-fields">Show all 42 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 37 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1155,15 +1104,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Promoters+</td></tr>
-                <tr><td>FIIs+</td></tr>
-                <tr><td>DIIs+</td></tr>
-                <tr><td>Public+</td></tr>
-                <tr><td>No. of Shareholders</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Promoters+</td></tr><tr><td>FIIs+</td></tr><tr><td>DIIs+</td></tr><tr><td>Public+</td></tr><tr><td>No. of Shareholders</td></tr><tr class="hidden-field"><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Promoters+</td></tr></tbody><tbody class="additional-fields"><tr><td>FIIs+</td></tr><tr><td>DIIs+</td></tr><tr><td>Public+</td></tr><tr><td>No. of Shareholders</td></tr><tr><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr></tbody></table><summary><span class="show-fields">Show all 6 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 1 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1189,15 +1132,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>Promoters+</td></tr>
-                <tr><td>FIIs+</td></tr>
-                <tr><td>DIIs+</td></tr>
-                <tr><td>Public+</td></tr>
-                <tr><td>No. of Shareholders</td></tr>
-              </tbody>
-            </table>
+                <tr><td>Promoters+</td></tr><tr><td>FIIs+</td></tr><tr><td>DIIs+</td></tr><tr><td>Public+</td></tr><tr><td>No. of Shareholders</td></tr><tr class="hidden-field"><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr></tbody></table>
 
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>Promoters+</td></tr></tbody><tbody class="additional-fields"><tr><td>FIIs+</td></tr><tr><td>DIIs+</td></tr><tr><td>Public+</td></tr><tr><td>No. of Shareholders</td></tr><tr><td>Detailed breakdown of promoter holding and large FII, DII and Public Holding</td></tr></tbody></table><summary><span class="show-fields">Show all 6 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 1 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1250,16 +1187,9 @@ details.field-details > summary {
               </thead>
 
               <tbody>
-                <tr><td>date</td></tr>
-                <tr><td>price</td></tr>
-                <tr><td>dma50</td></tr>
-                <tr><td>dma200</td></tr>
-                <tr><td>volume</td></tr>
-              </tbody>
+                <tr><td>date</td></tr><tr><td>price</td></tr><tr><td>dma50</td></tr><tr><td>dma200</td></tr><tr><td>volume</td></tr><tr class="hidden-field"><td>pe_ratio</td></tr><tr class="hidden-field"><td>ev_ebitda</td></tr><tr class="hidden-field"><td>price_to_book</td></tr><tr class="hidden-field"><td>market_cap_to_sales</td></tr><tr class="hidden-field"><td>eps</td></tr><tr class="hidden-field"><td>ebitda</td></tr><tr class="hidden-field"><td>book_value</td></tr><tr class="hidden-field"><td>sales</td></tr><tr class="hidden-field"><td>gpm</td></tr><tr class="hidden-field"><td>opm</td></tr><tr class="hidden-field"><td>npm</td></tr><tr class="hidden-field"><td>quarter_sales</td></tr></tbody></table>
 
-            </table>
-
-            <details class="all-fields field-details"><table class="field-table"><tbody><tr><td>date</td></tr></tbody><tbody class="additional-fields"><tr><td>price</td></tr><tr><td>dma50</td></tr><tr><td>dma200</td></tr><tr><td>volume</td></tr><tr><td>pe_ratio</td></tr><tr><td>ev_ebitda</td></tr><tr><td>price_to_book</td></tr><tr><td>market_cap_to_sales</td></tr><tr><td>date</td></tr><tr><td>eps</td></tr><tr><td>ebitda</td></tr><tr><td>book_value</td></tr><tr><td>sales</td></tr><tr><td>gpm</td></tr><tr><td>opm</td></tr><tr><td>npm</td></tr><tr><td>quarter_sales</td></tr></tbody></table><summary><span class="show-fields">Show all 18 fields</span><span class="hide-fields">Hide fields</span></summary></details>
+            <button type="button" class="fields-toggle" aria-expanded="false" onclick="toggleFields(this)"><span class="show-fields">Show 12 more fields</span><span class="hide-fields">Hide fields</span><span class="toggle-arrow">⌄</span></button>
 
           </article>
 
@@ -1314,6 +1244,21 @@ details.field-details > summary {
 
   </footer>
 
+
+
+<script>
+function toggleFields(button) {
+  const card = button.closest(".dataset-card");
+  const hiddenRows = card.querySelectorAll("tr.hidden-field");
+  const isOpen = button.getAttribute("aria-expanded") === "true";
+
+  hiddenRows.forEach(row => {
+    row.style.display = isOpen ? "none" : "table-row";
+  });
+
+  button.setAttribute("aria-expanded", String(!isOpen));
+}
+</script>
 
 </body>
 </html>
